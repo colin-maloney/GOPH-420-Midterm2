@@ -9,10 +9,11 @@ def main():
 
 
     plt.figure(figsize=(8, 5))
-    plt.scatter(p, vp, marker='o')
+    plt.scatter(p, vp, marker='o', label='Vp data')
     plt.title("Velocity vs Density")
     plt.xlabel("Density")
-    plt.ylabel("Velocity")
+    plt.ylabel("Velocity") 
+    plt.legend()
     plt.savefig("figures/Plot_1_Original_data.png")
     # the data is increasing exponentially, so we will take the ln of the velocity
     # to makie it linear, visuallly the data matches this trend. Equation (3) also 
@@ -35,11 +36,11 @@ def main():
     
 
     plt.figure(figsize=(8, 5)) 
-    plt.scatter(p, y, marker='o', label='data') 
-    plt.plot(p, model_vp, label='fitted line' ,color='red')
-    plt.title("Linerized Vp vs Density with linearized data with regression line") 
-    plt.xlabel("Density") 
-    plt.ylabel("Velocity") 
+    plt.scatter(p, y, marker='o', label='ln(Vp) data') 
+    plt.plot(p, model_vp, label='regression line' ,color='red')
+    plt.title("Linearized Vp vs Density with regression line") 
+    plt.xlabel("Density [g/cm^3]") 
+    plt.ylabel("Velocity[ln(m/s)]") 
     plt.legend()   
     plt.text(0.75, 0.05, f"ln(V0): {aCoeff[0]:.3f}, k: {aCoeff[1]:.3f} ", fontsize=12, ha='center', va='center', transform=plt.gca().transAxes)
     plt.savefig("figures/Plot3_regression_line_in_lnVp_space.png") 
@@ -56,11 +57,11 @@ def main():
     
 
     plt.figure(figsize=(8, 5)) 
-    plt.scatter(p, vp, marker='o', label='data') 
-    plt.plot(p_sorted, y_model_sorted, label='fitted line' ,color='red')
-    plt.title("Original plot with regression line") 
-    plt.xlabel("Density") 
-    plt.ylabel("Velocity") 
+    plt.scatter(p, vp, marker='o', label='Vp data') 
+    plt.plot(p_sorted, y_model_sorted, label='exponential regression line' ,color='red')
+    plt.title("Original plot with expontential regression line") 
+    plt.xlabel("Density[g/cm^3]") 
+    plt.ylabel("Velocity[m/s]") 
     plt.legend() 
     plt.text(0.75, 0.05, f"V0: {aCoefflinear[0]:.3f}, k: {aCoefflinear[1]:.3f} ", fontsize=12, ha='center', va='center', transform=plt.gca().transAxes)
     plt.savefig("figures/Plot4_Regression_line_in_original_vp_sapce.png") 

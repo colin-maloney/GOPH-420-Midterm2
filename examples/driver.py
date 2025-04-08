@@ -1,6 +1,6 @@
 import numpy as np 
 import matplotlib.pyplot as plt
-import muktiregression as multiregression
+import src.muktiregression as multiregression
 
 def main(): 
     data = np.loadtxt("data/Question_2_DATA_rho_vp.txt") 
@@ -16,11 +16,21 @@ def main():
     plt.show() 
     plt.savefig("figures/Question_2_velocity_vs_density.png")
     # the data is increasing exponentially, so we will take the ln of the velocity
-    # to makie it linear, visuallly the data matches this trend 
+    # to makie it linear, visuallly the data matches this trend. Equation (3) also 
+    # suggests this is the case. 
+    # so we will take the ln of the velocity to make it linear.
+
+    # this means our parameters are: 
+    # a1 = ln(V0) 
+    # a2 = k
 
     vp = np.log(vp) 
-    v0 = np.zeros_like(vp)
+    z = np.vstack((np.ones_like(vp)),vp).T
 
+    aCoeff, em, R2 = multiregression.multiregression(vp, z) 
+    print("Coefficients: ", aCoeff)
+    print("Residuals: ", em)
+    print("R^2: ", R2)
 
 
 if __name__ == "__main__": 

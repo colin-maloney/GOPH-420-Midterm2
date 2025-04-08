@@ -53,11 +53,18 @@ def main():
     plt.show() 
     plt.savefig("figures/Plot3_regression_line_in_lnVp_space.png") 
 
+    V0 = np.exp(aCoeff[0]) 
+    k = aCoeff[1] 
+
+    aCoefflinear = np.array([V0, k])
+
+    y_model = V0 * np.exp(k * p) 
+
     
 
     plt.figure(figsize=(8, 5)) 
     plt.scatter(p, vp, marker='o', label='data') 
-    plt.plot(p, model_vp_new, label='fitted line' ,color='red')
+    plt.scatter(p, y_model, label='fitted line' ,color='red')
     plt.title("Original plot with regression line") 
     plt.xlabel("Density") 
     plt.ylabel("Velocity") 

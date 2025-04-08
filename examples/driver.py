@@ -1,6 +1,6 @@
 import numpy as np 
 import matplotlib.pyplot as plt
-import src.muktiregression as multiregression
+import GOPH_420_Midterm2.muktiregression as multiregression
 
 def main(): 
     data = np.loadtxt("data/Question_2_DATA_rho_vp.txt") 

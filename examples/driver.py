@@ -24,13 +24,23 @@ def main():
     # a1 = ln(V0) 
     # a2 = k
 
-    vp = np.log(vp) 
-    z = np.vstack((np.ones_like(vp)),vp).T
+    y = np.log(vp) 
+    z = np.vstack((np.ones_like(p),p)).T
 
-    aCoeff, em, R2 = multiregression.multiregression(vp, z) 
+    aCoeff, em, R2 = multiregression.multiregression(y, z) 
     print("Coefficients: ", aCoeff)
     print("Residuals: ", em)
     print("R^2: ", R2)
+
+    model_vp = z @ aCoeff 
+    
+    plt.figure(figsize=(8, 5)) 
+    plt.plot(p, model_vp, label='fitted line' ,color='red')
+    plt.title("ln(Velocity) vs Density") 
+    plt.xlabel("Density")
+    plt.ylabel("ln(Velocity)") 
+    plt.legend() 
+    plt.show()
 
 
 if __name__ == "__main__": 

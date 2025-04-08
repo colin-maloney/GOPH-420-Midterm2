@@ -14,7 +14,7 @@ def main():
     plt.xlabel("Density")
     plt.ylabel("Velocity")
     plt.show() 
-    plt.savefig("figures/Question_2_velocity_vs_density.png")
+    plt.savefig("figures/Plot_1_Original_data.png")
     # the data is increasing exponentially, so we will take the ln of the velocity
     # to makie it linear, visuallly the data matches this trend. Equation (3) also 
     # suggests this is the case. 
@@ -41,27 +41,27 @@ def main():
     plt.ylabel("ln(Velocity)") 
     plt.legend() 
     plt.show()
-    plt.savefig("figures/Question_2_velocity_vs_density_fit.png") 
+    plt.savefig("figures/Plot2_Regression_line_density_fit.png") 
 
     plt.figure(figsize=(8, 5)) 
     plt.scatter(p, y, marker='o', label='data') 
     plt.plot(p, model_vp, label='fitted line' ,color='red')
-    plt.title("Original data with model line") 
+    plt.title("Linerized Vp vs Density with linearized data with regression line") 
     plt.xlabel("Density") 
     plt.ylabel("Velocity") 
     plt.legend() 
     plt.show() 
-    plt.savefig("figures/Question_2_velocity_vs_density_original.png") 
+    plt.savefig("figures/Plot3_regression_line_in_lnVp_space.png") 
 
     plt.figure(figsize=(8, 5)) 
     plt.scatter(p, vp, marker='o', label='data') 
     plt.plot(p, model_vp, label='fitted line' ,color='red')
-    plt.title("Original data with model line") 
+    plt.title("Original plot with regression line") 
     plt.xlabel("Density") 
     plt.ylabel("Velocity") 
     plt.legend() 
     plt.show() 
-    plt.savefig("figures/Question_2_velocity_vs_density_original.png") 
+    plt.savefig("figures/Plot4_Regression_line_in_original_vp_sapce.png") 
     
     # recover true model parameter values 
     V0 = np.exp(aCoeff[0]) 

@@ -53,6 +53,16 @@ def main():
     plt.show() 
     plt.savefig("figures/Question_2_velocity_vs_density_original.png") 
 
+    plt.figure(figsize=(8, 5)) 
+    plt.scatter(p, vp, marker='o', label='data') 
+    plt.plot(p, model_vp, label='fitted line' ,color='red')
+    plt.title("Original data with model line") 
+    plt.xlabel("Density") 
+    plt.ylabel("Velocity") 
+    plt.legend() 
+    plt.show() 
+    plt.savefig("figures/Question_2_velocity_vs_density_original.png") 
+    
     # recover true model parameter values 
     V0 = np.exp(aCoeff[0]) 
     k = aCoeff[1] 

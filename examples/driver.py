@@ -41,7 +41,16 @@ def main():
     plt.ylabel("ln(Velocity)") 
     plt.legend() 
     plt.show()
+    plt.savefig("figures/Question_2_velocity_vs_density_fit.png") 
 
+    plt.figure(figsize=(8, 5)) 
+    plt.scatter(p, vp, marker='o', label='data') 
+    plt.plot(p, model_vp, label='fitted line' ,color='red')
+    plt.title("Original data with model line") 
+    plt.xlabel("Density") 
+    plt.ylabel("Velocity") 
+    plt.legend() 
+    plt.show()
 
 if __name__ == "__main__": 
     main()

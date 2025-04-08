@@ -53,9 +53,10 @@ def main():
     plt.show() 
     plt.savefig("figures/Plot3_regression_line_in_lnVp_space.png") 
 
+    model_vp_new = np.exp(model_vp)
     plt.figure(figsize=(8, 5)) 
     plt.scatter(p, vp, marker='o', label='data') 
-    plt.plot(p, model_vp, label='fitted line' ,color='red')
+    plt.plot(p, model_vp_new, label='fitted line' ,color='red')
     plt.title("Original plot with regression line") 
     plt.xlabel("Density") 
     plt.ylabel("Velocity") 

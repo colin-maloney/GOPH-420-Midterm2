@@ -57,14 +57,16 @@ def main():
     k = aCoeff[1] 
 
     aCoefflinear = np.array([V0, k])
-
     y_model = V0 * np.exp(k * p) 
-
+    sorted_indicies = np.argsort(p) 
+    p_sorted = p[sorted_indicies] 
+    y_model_sorted = y_model[sorted_indicies]
+    
     
 
     plt.figure(figsize=(8, 5)) 
     plt.scatter(p, vp, marker='o', label='data') 
-    plt.scatter(p, y_model, label='fitted line' ,color='red')
+    plt.plot(p_sorted, y_model_sorted, label='fitted line' ,color='red')
     plt.title("Original plot with regression line") 
     plt.xlabel("Density") 
     plt.ylabel("Velocity") 
